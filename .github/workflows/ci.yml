@@ -1,0 +1,46 @@
+name: "PySpark Template CI"
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feat/*
+      - fix/*
+      - hotfix/*
+      - release/*
+  pull_request:
+    branches:
+      - main
+      - develop
+      - feat/*
+      - fix/*
+      - hotfix/*
+      - release/*
+
+jobs:
+  pyspark-template-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: make test
+
+      - name: Run lint
+        run: make lint
+
+      - name: Run type check
+        run: make type-check
+
+      - name: Run coverage
+        run: make coverage
