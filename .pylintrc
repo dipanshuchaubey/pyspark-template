@@ -1,3 +1,6 @@
+[MASTER]
+disable = C0114, C0115, C0116
+
 [MAIN]
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
@@ -307,8 +310,8 @@ min-public-methods=2
 [EXCEPTIONS]
 
 # Exceptions that will emit a warning when caught.
-overgeneral-exceptions=BaseException,
-                       Exception
+overgeneral-exceptions=builtins.BaseException,
+                       builtins.Exception
 
 
 [FORMAT]

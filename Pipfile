@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 pyspark = "*"
+pylint = "*"
+mypy = "*"
+coverage = "*"
 
 [dev-packages]
 
